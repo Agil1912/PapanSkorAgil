@@ -15,14 +15,14 @@
         }
 
         h1 {
-            margin-top: 50px;
+            margin-top: 20px;
             color: #333;
         }
 
         .container {
             display: flex;
             justify-content: space-around;
-            margin-top: 50px;
+            margin-top: 20px;
         }
 
         .team {
@@ -73,31 +73,49 @@
         }
 
         .reset {
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+
+        .timer,
+        .quarter {
+            font-size: 1.5em;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <h1>SKOR BASKET</h1>
+    <h1>Basketball Scoreboard</h1>
+    <div class="timer" id="timer">Time: 00:00</div>
+    <div class="quarter" id="quarter">Quarter: 1</div>
+    <button class="btn-primary" onclick="startTimer()">Start Timer</button>
+    <button class="btn-danger" onclick="pauseTimer()">Pause Timer</button>
     <div class="container">
         <div class="team">
-            <h2>TIM 1</h2>
+            <h2>Team 1</h2>
             <div id="team1-score" class="score">0</div>
             <button class="btn-primary" onclick="addPoints('team1', 1)">Free Throw (1 Point)</button>
             <button class="btn-success" onclick="addPoints('team1', 2)">Field Goal (2 Points)</button>
-            <button class="btn-warning" onclick="addPoints('team1', 3)">Three Point(3 Points)</button>
+            <button class="btn-warning" onclick="addPoints('team1', 3)">Three Pointer (3 Points)</button>
+            
+            <button class="btn-danger" onclick="subtractPoints('team1', 1)">Subtract Point 1</button>
+            <button class="btn-danger" onclick="subtractPoints('team1', 2)">Subtract Point 2</button>
+            <button class="btn-danger" onclick="subtractPoints('team1', 3)">Subtract Point 3</button>
         </div>
         <div class="team">
-            <h2>TIM 2</h2>
+            <h2>Team 2</h2>
             <div id="team2-score" class="score">0</div>
             <button class="btn-primary" onclick="addPoints('team2', 1)">Free Throw (1 Point)</button>
             <button class="btn-success" onclick="addPoints('team2', 2)">Field Goal (2 Points)</button>
-            <button class="btn-warning" onclick="addPoints('team2', 3)">Three Point (3 Points)</button>
+            <button class="btn-warning" onclick="addPoints('team2', 3)">Three Pointer (3 Points)</button>
+
+            <button class="btn-danger" onclick="subtractPoints('team2', 1)">Subtract Point 1</button>
+            <button class="btn-danger" onclick="subtractPoints('team2', 2)">Subtract Point 2</button>
+            <button class="btn-danger" onclick="subtractPoints('team2', 3)">Subtract Point 3</button>
         </div>
     </div>
     <div class="reset">
-        <button class="btn-danger" onclick="resetScores()">Reset</button>
+        <button class="btn-danger" onclick="resetScores()">Reset Scores</button>
     </div>
 
     <script src="scoreboard.js"></script>
